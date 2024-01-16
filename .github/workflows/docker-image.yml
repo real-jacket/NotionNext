@@ -45,7 +45,8 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta.outputs.tags }},latest
           labels: ${{ steps.meta.outputs.labels }}
+          platforms: linux/amd64,linux/arm64
           build-args: |
             NOTION_PAGE_ID=${{secrets.NOTION_PAGE_ID}}
