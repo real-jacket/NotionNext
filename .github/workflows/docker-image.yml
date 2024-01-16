@@ -5,11 +5,11 @@ on:
     branches:
       - "deploy_vercel"
 
-env:
-  # Use docker.io for Docker Hub if empty
-  REGISTRY: ghcr.io
-  # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ github.repository }}
+# env:
+#   # Use docker.io for Docker Hub if empty
+#   REGISTRY: docker.io
+#   # github.repository as <account>/<repo>
+#   IMAGE_NAME: ${{ github.repo }}
 
 jobs:
   docker:
@@ -36,7 +36,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: xiaomu1993/notion-next
           env: |
             NEXT_PUBLIC_BEI_AN:${{secrets.BEI_AN}}
 
