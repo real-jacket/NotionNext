@@ -37,8 +37,6 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: xiaomu1993/notion-next
-          tags: |
-            type=ref,event=tag
 
       - name: Build and push
         uses: docker/build-push-action@v5
