@@ -38,7 +38,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           env: |
-            NEXT_PUBLIC_BEI_AN:${{BEI_AN}}
+            NEXT_PUBLIC_BEI_AN:${{secrets.BEI_AN}}
 
       - name: Build and push
         uses: docker/build-push-action@v5
@@ -47,5 +47,5 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: ｜
+          build-args: |
             NOTION_PAGE_ID={{secrets.NOTION_PAGE_ID}}
