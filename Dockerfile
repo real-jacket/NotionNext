@@ -10,6 +10,8 @@ RUN yarn install --frozen-lockfile
 # Rebuild the source code only when needed
 FROM node:18-alpine3.18 AS builder
 ARG NOTION_PAGE_ID
+ENV NOTION_PAGE_ID $NOTION_PAGE_ID
+ENV NEXT_PUBLIC_BEI_AN $NEXT_PUBLIC_BEI_AN
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .

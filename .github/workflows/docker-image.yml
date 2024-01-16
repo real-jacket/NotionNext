@@ -32,21 +32,22 @@ jobs:
 
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
-      - name: Extract Docker metadata
+      - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v3
         with:
           images: xiaomu1993/notion-next
-          env: |
-            NEXT_PUBLIC_BEI_AN:${{secrets.BEI_AN}}
+          tags: |
+            type=ref,event=tag
 
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }},latest
+          tags: latest
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64,linux/arm64
           build-args: |
             NOTION_PAGE_ID=${{secrets.NOTION_PAGE_ID}}
+            NEXT_PUBLIC_BEI_AN=${{secrets.BEI_AN}}
