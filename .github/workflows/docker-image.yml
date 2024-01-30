@@ -3,7 +3,7 @@ name: build and push
 on:
   push:
     branches:
-      - "deploy_vercel"
+      - 'deploy_vercel'
 
 # env:
 #   # Use docker.io for Docker Hub if empty
@@ -53,3 +53,6 @@ jobs:
             NEXT_PUBLIC_ALGOLIA_APP_ID=${{secrets.NEXT_PUBLIC_ALGOLIA_APP_ID}}
             NEXT_PUBLIC_ALGOLIA_INDEX=${{secrets.NEXT_PUBLIC_ALGOLIA_INDEX}}
             NEXT_PUBLIC_ALGOLIA_SEARCH_ONLY_APP_KEY=${{secrets.NEXT_PUBLIC_ALGOLIA_SEARCH_ONLY_APP_KEY}}
+            NEXT_PUBLIC_COMMENT_GISCUS_REPO=${{secrets.NEXT_PUBLIC_COMMENT_GISCUS_REPO}}
+            NEXT_PUBLIC_COMMENT_GISCUS_REPO_ID=${{secrets.NEXT_PUBLIC_COMMENT_GISCUS_REPO_ID}}
+            NEXT_PUBLIC_COMMENT_GISCUS_CATEGORY_ID=${{secrets.NEXT_PUBLIC_COMMENT_GISCUS_CATEGORY_ID}}
